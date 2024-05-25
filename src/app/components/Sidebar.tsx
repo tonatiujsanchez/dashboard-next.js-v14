@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { IoBrowsersOutline, IoCalculator, IoLogoNodejs } from 'react-icons/io5';
+import { IoBrowsersOutline, IoCalculator, IoFootballOutline, IoLogoNodejs } from 'react-icons/io5';
 import { SidebarMenuItem } from '@/app/components/SidebarMenuItem';
 
 
@@ -16,6 +16,12 @@ const menuItems = [
         title: 'Counter', 
         subTitle: 'Counter Client Side'
     },
+    { 
+        path: '/dashboard/pokemons', 
+        icon: <IoFootballOutline size={24} />, 
+        title: 'Pokemons', 
+        subTitle: 'Generación Estática'
+    },
 ]
 
 
@@ -24,7 +30,7 @@ export const Sidebar = () => {
         <aside 
             id="menu"
             style={{ width: '300px' }}
-            className="bg-gray-900 min-h-screen z-10 text-slate-300 w-64 left-0 h-screen overflow-y-auto"
+            className="bg-gray-900 min-h-screen z-10 text-slate-300 w-64 left-0 h-screen sticky top-0 overflow-y-auto"
             >
             <div id="logo" className="my-4 px-6">
                 <h1 className="flex items-center gap-1 text-lg md:text-2xl font-bold text-white">
