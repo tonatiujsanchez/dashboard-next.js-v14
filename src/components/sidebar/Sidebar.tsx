@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { IoBrowsersOutline, IoCalculator, IoFootballOutline, IoLogoNodejs } from 'react-icons/io5';
-import { SidebarMenuItem } from '@/components/SidebarMenuItem';
+import { IoBrowsersOutline, IoCalculator, IoFootballOutline, IoHeartOutline, IoLogoNodejs } from 'react-icons/io5';
+import { SidebarMenuItem } from '@/components';
 
 
 const menuItems = [
@@ -21,6 +21,12 @@ const menuItems = [
         icon: <IoFootballOutline size={24} />, 
         title: 'Pokemons', 
         subTitle: 'Generación Estática'
+    },
+    { 
+        path: '/dashboard/favorites', 
+        icon: <IoHeartOutline size={24} />, 
+        title: 'Favoritos', 
+        subTitle: 'Global state'
     },
 ]
 
