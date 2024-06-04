@@ -1,7 +1,10 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { IoHeartOutline } from 'react-icons/io5'
+import { IoHeart, IoHeartOutline } from 'react-icons/io5'
+import { useAppDispatch, useAppSelector } from '@/store'
+import { toggleFavorite } from '@/store/pokemons/pokemonsSlice'
 import { SimplePokemon } from '@/pokemons'
 
 interface Props {
@@ -11,9 +14,15 @@ export const PokemonCard = ({ pokemon }: Props) => {
 
     const { id, name } = pokemon
 
+    const pokemonFoverite = useAppSelector( state => state.pokemons[id] )
+    const dispatch = useAppDispatch()
+
+    const handleToggleFavorite = () => {
+        dispatch( toggleFavorite(pokemon) )
+    }
+
     return (
         <div>
-
             <article key={pokemon.id}>
                 <div className="mx-auto right-0 mt-2 w-60">
                     <div className="bg-white rounded overflow-hidden shadow-lg">
@@ -39,14 +48,19 @@ export const PokemonCard = ({ pokemon }: Props) => {
                         </div>
                         <div className="border-b">
                             <button
+                                onClick={ handleToggleFavorite }
                                 className="w-full px-4 py-2 hover:bg-gray-100 flex items-center gap-3"
                             >
                                 <div className="text-red-600">
-                                    <IoHeartOutline size={24} />
+                                    {
+                                        !!pokemonFoverite
+                                        ? ( <IoHeart size={24} /> )
+                                        : ( <IoHeartOutline size={24} />  )
+                                    }
                                 </div>
                                 <div className="flex flex-col items-start">
                                     <p className="text-sm font-medium text-gray-800 leading-none">
-                                        Agregar a favoritos
+                                        {!!pokemonFoverite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
                                     </p>
                                     <p className="text-xs text-gray-500">View your campaigns</p>
                                 </div>

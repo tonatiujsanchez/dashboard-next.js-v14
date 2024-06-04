@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import { IoBrowsersOutline, IoCalculator, IoFootballOutline, IoHeartOutline, IoLogoNodejs } from 'react-icons/io5';
-import { SidebarMenuItem } from '@/components';
+import { IoBrowsersOutline, IoCalculator, IoHeartOutline, IoLogoNodejs } from 'react-icons/io5'
+import { CgPokemon } from 'react-icons/cg'
+import { SidebarMenuItem } from '@/components'
 
 
 const menuItems = [
@@ -18,7 +19,7 @@ const menuItems = [
     },
     { 
         path: '/dashboard/pokemons', 
-        icon: <IoFootballOutline size={24} />, 
+        icon: <CgPokemon size={24} />, 
         title: 'Pokemons', 
         subTitle: 'Generación Estática'
     },
