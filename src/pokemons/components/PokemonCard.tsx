@@ -14,7 +14,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
 
     const { id, name } = pokemon
 
-    const pokemonFoverite = useAppSelector( state => state.pokemons[id] )
+    const pokemonFoverite = useAppSelector( state => state.pokemons.favorites[id] )
     const dispatch = useAppDispatch()
 
     const handleToggleFavorite = () => {

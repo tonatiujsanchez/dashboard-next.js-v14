@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NoFavorites, PokemonGrid, SimplePokemon } from '@/pokemons'
 import { useAppSelector } from '@/store'
 
 export const PokemonFavorites = () => {
 
-    const pokemons = useAppSelector(state => state.pokemons)
-    const [pokemonFavorites, _setPokemonFavorites] = useState<SimplePokemon[]>(Object.values(pokemons))
+    const { favorites } = useAppSelector(state => state.pokemons)
+    const pokemonFavorites = Object.values(favorites)
 
     return (
         pokemonFavorites.length === 0
